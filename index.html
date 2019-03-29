@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html class="js lt-ie9" lang="cs"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="js" lang="cs"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Diplomová práce Neuronové sítě// praktická část" />
+    <meta name="keywords" content="neural networks, deep learning, web, design" />
+    <meta name="author" content="all:Dan Šilhavý;" />
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <link href="img/faviconBW.png" rel="icon" />
+    <link rel="author" href="humans.txt" />
+
+    <title>DP / Neuronové sítě</title>
+
+    <!-- Styles
+    ================================================== -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/vlastni.css" />
+    <link rel="stylesheet" href="css/ie8_grid.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Head - scripts
+    ================================================== -->
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>-->
+
+</head>
+<body>
+
+<!--region deskripce-->
+<div class="row mt-4">
+    <div class="large-12 columns">
+        <h1>Diplomová práce <br/> Moderní neuronové sítě</h1>
+        <h5><strong>Dan Šilhavý &nbsp;|&nbsp; ČZU v Praze &nbsp;|&nbsp; Katedra informačního inženýrství &nbsp;|&nbsp; 2019</strong></h5><br>
+    </div>
+</div>
+<hr/>
+
+<div class="row">
+    <div class="large-9 columns">
+        <h3>Úvod</h3>
+        <p>Tyto webové stránky demonstrují praktickou část mé diplomové práce zabývající se neuronovými učícími systémy. Aplikace jsou zpracovány v jedntlivých funkčních modulech s tím, že stránky i zmíněné muduly jsou dostupné z mobilních zařízení.
+        <p>
+            Obrat v pozoronosti a zájem o umělou inteligenci zapříčinil po konci první dekády 20. století mimojiné i rozvoj datových setů a programů rozeznávající vizuální objekty.
+            V prvním modulu je proto zpracován program klasifikující objekty ze slavného datového souboru <strong>Kalifornské univerzity v Irvine <a style="text-decoration: none;" href="https://en.wikipedia.org/wiki/Iris_flower_data_set"> Iris dataset</a></strong>.
+            <br><br>Účelem této prezentace je poukázat na <strong>aplikace moderních metod učení neurálních sítí</strong> <br>a proto je zde v závěru uveden i jejich souhrn.
+            <!--které našly své působiště a význam i ve webovém prostředí.-->
+        </p>
+        <p>Technologie webu:
+            <a href="https://foundation.zurb.com" title="Front-end framework" class="a-blue" target="_blank"> Foundation</a> &nbsp;\\&nbsp;
+            <a href="https://www.tensorflow.org/js/" title="Aplication library" class="a-blue" target="_blank">TensorFlow.js</a> &nbsp;\\&nbsp;
+            <a href="https://nodejs.org/en/" title="Aplication framework" class="a-blue" target="_blank">Node.js</a>
+        </p>
+        <p>Standardizace webu dle:
+            <a href="http://validator.w3.org/" title="HTML validator" class="a-blue" target="_blank">&nbsp;HTML5</a> &nbsp;\\&nbsp;
+            <a href="http://validator.w3.org/" title="CSS validator" class="a-blue" target="_blank">CSS3</a> &nbsp;\\&nbsp;
+            <a href="http://blindfriendly.cz/metodika#kap2" title="Blind Friendly Web metodika" class="a-blue" target="_blank">Blind Friendly Web 2.3</a> &nbsp;\\&nbsp;
+            <a href="https://developers.google.com/speed/pagespeed/insights/" title="Google Page Speed analýza" class="a-blue" target="_blank">Google Page Insights</a>
+        </p>
+        <p>
+            <a href="http://85.71.203.13:8090/x/AwAe" title="Confluence WIKI" class="a-blue">Dokumentace a Wiki</a> &nbsp;\\&nbsp;
+            <a href="http://85.71.203.13:7990/projects/BPSS/repos/microsite/browse" title="Stash repositář" class="a-blue">Git repositář</a>
+        </p>
+    </div>
+
+    <div class="large-3 left-align columns">
+        <!--<img src="http://bigdata.black/wp-content/uploads/2017/11/deep-learning-v1.png" alt="Geolokace" class="mark hide-for-small">-->
+        <img src="img/2000px-Graph_betweenness.svg.png" alt="Geolokace" class="hide-for-small">
+    </div>
+</div>
+
+<section id="info" class="section appear clearfix">
+    <div class="stripe">
+        <div class="row mb-1">
+            <div class="large-12 columns"><h3>Informace o diplomové práci</h3></div>
+            <div class="large-4 columns">
+                <div class="info-box">
+                    <h3>Téma</h3>
+                    <hr/>
+                    <p class="centered mt-4">
+                        Moderní metody učení <br>neuronových sítí
+                    </p>
+                </div>
+            </div>
+
+            <div class="large-4 columns">
+                <div class="info-box">
+                    <h3>Autor</h3>
+                    <hr/>
+                    <p class="centered">
+                        Dan Šilhavý
+                    </p>
+                </div>
+            </div>
+
+            <div class="large-4 columns">
+                <div class="info-box">
+                    <h3>Vedoucí práce</h3>
+                    <hr/>
+                    <p class="centered">
+                        doc. Ing. Arnošt Veselý, CSc.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--endregion-->
+
+<!--region APLIKACE-->
+<section id="moduly" class="section appear clearfix">
+    <div class="row">
+        <div class="large-12 columns text-left mb-4">
+            <h3>Funkční moduly aplikace</h3>
+
+            <a href="moduly/mobileNet/index.html" class="large button expand mt-2" ><span class="number hide-for-small">1.</span>Detekce objektů z obrázků, klasifikační úloha</a>
+            <a href="http://90.177.180.207:1236" class="large button expand mt-2" ><span class="number hide-for-small">2.</span>Iris, klasifikační úloha</a>
+            <a href="moduly/mobileNet/index.html" class="large button expand" ><span class="number hide-for-small">3.</span>Detekce objektů v reálném* čase, klasifikační úloha</a>
+            <a href="moduly/regrese/regrese-index.html" class="large button expand last-all mb-4" ><span class="number hide-for-small">4.</span>Lineární regrese</a><br>
+
+            <h3>Analogické aplikace moderních metod neuronových sítí</h3>
+            <a href="https://ml5js.org/docs/knnclassifier-posenet" target="_blank" class="large button secondary expand " >KNN Classifier (PoseNet:CNN)</a>
+            <a href="https://ml5js.org/docs/lstm-example" target="_blank" class="large button secondary expand" >Text Generation (Ernest Hemingway Model:LSTM)</a>
+            <a href="https://ml5js.org/docs/yolo-webcam" target="_blank" class="large button secondary expand" >Object Detection (YOLO:CNN)</a>
+            <a href="https://magenta.tensorflow.org/demos/performance_rnn/index.html" target="_blank" class="large button secondary expand" >Music Generation (RNN)</a>
+            <a href="https://alexyu.ca/projects/Skin-Lesion-Classifier/" target="_blank" class="large button secondary expand" >Skin Classification (MobileNet:CNN)</a>
+            <a href="https://dhormale.github.io/angular-tensorFlow-integration/" target="_blank" class="large button secondary expand">Number Recognition (MNIST model:CNN)</a>
+            <!--<a href="https://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html" target="_blank" class="large button secondary expand">Image recognition (CNN over CIFAR dataset)</a>-->
+            <a href="https://storage.googleapis.com/tfjs-models/demos/posenet/camera.html" target="_blank" class="large button secondary expand" >Human Pose Estimation (PoseNet: CNN)</a>
+            <a href="https://magenta.tensorflow.org/demos/" target="_blank" class="large button secondary expand" >Další příklady aplikací (ML)</a>
+        </div>
+    </div>
+</section>
+<!--endregion-->
+
+<section id="bp" class="section appear clearfix">
+    <div class="row">
+        <div class="large-12 columns">
+            <h3>Diplomová práce</h3>
+            <p>Zde si můžete stáhnout moji práci v pdf.</p><br>
+
+            <div class="download centered">
+                <a href="dp/dp_silhavydan" class="large button dwn"><img src="img/dwn.png" alt="">Stáhnout práci</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--region footer-->
+<div class="dark-stripe footer">
+    <div class="row">
+        <div class="small-2 large-1 columns zurb">
+            <a href="http://foundation.zurb.com/"><img src="img/yeti.png" alt="Powered by Foundation"></a>
+        </div>
+        <div class="small-8 large-3 columns left left-align">
+            <br><br><p class=""><a href="prohlaseni.html" class="a-dark">Prohlášení o přístupnosti webu</a></p>
+        </div>
+        <div class="small-8 large-4 columns copy">
+            <p>Dan Šilhavý <span class="copyleft">&copy;</span> 2019</p>
+        </div>
+    </div>
+</div>
+<!--endregion-->
+
+<!-- Body - scripts
+  ================================================== -->
+<script src="js/foundation.min.js"></script>
+
+<!--
+<script src="js/foundation/foundation.js"></script>
+<script src="js/foundation/foundation.alerts.js"></script>
+<script src="js/foundation/foundation.clearing.js"></script>
+<script src="js/foundation/foundation.cookie.js"></script>
+<script src="js/foundation/foundation.dropdown.js"></script>
+<script src="js/foundation/foundation.forms.js"></script>
+<script src="js/foundation/foundation.joyride.js"></script>
+<script src="js/foundation/foundation.magellan.js"></script>
+<script src="js/foundation/foundation.orbit.js"></script>
+<script src="js/foundation/foundation.placeholder.js"></script>
+<script src="js/foundation/foundation.reveal.js"></script>
+<script src="js/foundation/foundation.section.js"></script>
+<script src="js/foundation/foundation.topbar.js"></script>
+-->
+</body>
+</html>
