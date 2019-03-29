@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="/faviconBW.48e7a011.png" rel="icon">
+
+    <title>Modul 1 - Klasifikace kosatců</title>
+
+    <!-- Styly
+    ================================================== -->
+    <link rel="stylesheet" href="/iris.08f6721f.css">
+    <link rel="stylesheet" href="/foundation.27e74819.css">
+    <link rel="stylesheet" href="/normalize.a7d4eca6.css">
+    <link rel="stylesheet" href="/vlastni.c365a416.css">
+
+</head>
+
+<body>
+<!--region Moje IRIS Styly-->
+<style>body {background-color: white !important;}
+    h1,h2,h3,h4,h5,h6, p {color: black !important;}
+    input {
+        width: 75px;
+    }
+    .input-div {
+        padding: 5px;
+        font-family: monospace;
+        font-size: 16px;
+    }
+    .input-label {
+        display: inline-block;
+        width: 160px;
+    }
+    td {
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+    }
+    #predict-header {
+        font-weight: bold;
+    }
+    .output-div {
+        padding: 5px;
+        padding-top: 20px;
+        font-family: monospace;
+        font-weight: bold;
+    }
+    #evaluate-table {
+        display: inline-block;
+    }
+    #evaluate-table td, #evaluate-table th {
+        font-family: monospace;
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    #evaluate-table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+    .region {
+        /*border-left: 1px dashed #ccc;*/
+        margin-bottom: 5px;
+        padding-left: 24px;
+        margin-left: -24px;
+    }
+    .load-save-section {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+    #demo-status {
+        color: black;
+    }
+    .logit-span {
+        padding-right: 1em;
+    }
+    .correct-prediction {
+        background-color: greenyellow
+    }
+    .wrong-prediction {
+        background-color: red;
+    }</style>
+<!--endregion-->
+<div class="tfjs-example-container">
+    <!--region deskripce-->
+    <section class="description">
+        <div class="col-md-12">
+            <h2> Klasifikace kosatců</h2> <br>
+            <p class="podtitulek">Úlohou je zde pro neuronovou síť správné rozpoznání ze 3 kategorií květiny Iris. Vstupní data jsou numerická a pocházejí ze slavného souboru <strong>Kalifornské univerzity v Irvine - Iris dataset</strong>.
+                <br><br>Soubor má 150 záznamů, každý záznam má po 5 hodnotách. Kritérii pro rozližení jednotlivých typů kosatců jsou: délka a šířka jejich okvětního lístku a délka a šířka květů.
+
+                <br><br>Testován a navrhnut byl sekvenční model s 2 hustými vrstvami, 3 neurony na výstupu a 10 na vstupu. Aktivačí funkce byla pro vstupní neurony zvolena softmax a pro vstupní vrstvu sigmoid.
+                Optimalizační funkcí byl ozkoušen algoritmus Adam, který bývá považován za celkově výhodnější algoritmus než Gradient Descent - více v publikaci zde..
+                Chybová funkce byla zvolena Cross Entropy, které vychází lépe než RMSE a které se lépe hodí pro klasifikační úlohy.
+            </p>
+        </div>
+        <p class="section-head">Manuál</p>
+        <ul class="manual" style="list-style-type: circle; list-style-position: inside;">
+            <li>Pomocí tlačítek níže můžete buď trénovat nový model od nuly nebo načíst již natrénovaný model a testovat jeho kvalitu.</li>
+            <li>Pokud trénujete model od nuly, můžete jej také uložit do lokálního úložiště prohlížeče.</li>
+            <li>Pokud nahrajete již trénovaný model, můžete upravit jeho vlastnosti v prvním řádku <u>Testových příkladů</u>.</li>
+        </ul>
+    </section>
+    <!--endregion-->
+
+    <section>
+        <div class="region mb-4">
+            <h3 class="mb-2 w-25">Trénovat Model</h3>
+            <div class="create-model odliseni-podsekce">
+                <div class="input-div">
+                    <span class="input-label mb-2">Epochy:</span>
+                    <input id="train-epochs" type="number" value="40">
+                </div>
+                <div class="input-div">
+                    <span class="input-label mb-2">Učící stupeň:</span>
+                    <input id="learning-rate" type="number" value="0.01">
+                </div>
+                <button id="train-from-scratch">Trénovat model od začátku</button>
+            </div>
+        </div>
+
+        <div class="region mb-3">
+            <h3 class="mb-3 w-25" style="margin-top: 27px">Uložit/Nahrát Model</h3>
+            <div class="load-save-section odliseni-podsekce">
+                <button id="load-pretrained-remote">Nahrát již učený model</button>
+            </div>
+
+            <div class="load-save-section odliseni-podsekce">
+                <button id="load-local" disabled="true">Nahrát lokální model</button>
+                <button id="save-local" disabled="true">Uložit model</button>
+                <button id="remove-local" disabled="true">Odebrat model</button>
+                <span id="local-model-status"></span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <p class="section-head">Status Quo Trénování</p>
+        <div>
+            <span id="demo-status">>Čeká na trénovaní.</span>
+        </div>
+    </section>
+
+    <section>
+        <p class="section-head">Grafy Trénovacího Procesu</p>
+        <div class="with-cols">
+            <div>
+                <h4>Ztráta: </h4>
+                <div class="canvases" id="lossCanvas"></div>
+            </div>
+            <div>
+                <h4>Přesnost: </h4>
+                <div class="canvases" id="accuracyCanvas"></div>
+            </div>
+            <div>
+                <h4>Confusion Matrix: </h4>
+                <div id="confusion-matrix"></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <p class="section-head">Testové příklady</p>
+
+        <div id="evaluate">
+            <table id="evaluate-table">
+                <tr>
+                    <th>Délka okvětního lístku</th>
+                    <th>Šířka okvětního lístku</th>
+                    <th>Délka květu</th>
+                    <th>Šířka květu</th>
+                    <th>Pravda</th>
+                    <th>Predikce</th>
+                    <th>Pravděpodobnost</th>
+                </tr>
+                <tbody id="evaluate-tbody">
+                <tr>
+                    <td>
+                        <input id="petal-length" value="5.1">
+                        <button id="petal-length-inc">+</button>
+                        <button id="petal-length-dec">-</button>
+                    </td>
+                    <td>
+                        <input id="petal-width" value="3.5">
+                        <button id="petal-width-inc">+</button>
+                        <button id="petal-width-dec">-</button>
+                    </td>
+                    <td>
+                        <input id="sepal-length" value="1.4">
+                        <button id="sepal-length-inc">+</button>
+                        <button id="sepal-length-dec">-</button>
+                    </td>
+                    <td>
+                        <input id="sepal-width" value="0.2">
+                        <button id="sepal-width-inc">+</button>
+                        <button id="sepal-width-dec">-</button>
+                    </td>
+                    <td></td>
+                    <td id="winner"></td>
+                    <td id="logits"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+
+    <div>
+        <div class="horizontal-section">
+
+
+
+            <div id="horizontal-section">
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!--region footer-->
+<div class="dark-stripe footer">
+    <div class="paticka-modulu row">
+        <div class="small-2 large-1 columns zurb">
+            <a href=" "><img src="/yeti.c4f893c1.png" alt="Powered by Foundation"></a>
+        </div>
+        <div class="small-4 large-2 columns mt-3">
+            <p><a href="http://90.177.180.207/prohlaseni.html" class="a-dark">Prohlášení o přístupnosti webu</a></p>
+        </div>
+        <div class="small-3 large-6 columns text-center mt-4">
+            <p class=""><a href="http://90.177.180.207" class="a-blue">Zpátky na úvod</a></p>
+        </div>
+        <div class="small-3 large-3 columns copy">
+            <p class="a-dark">Dan Šilhavý <span class="copyleft">&copy;</span> 2019</p>
+        </div>
+    </div>
+</div>
+<!--endregion-->
+
+<script src="/iris.e31bb0bc.js"></script>
+</body>

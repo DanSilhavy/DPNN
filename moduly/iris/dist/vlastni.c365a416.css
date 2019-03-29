@@ -1,0 +1,590 @@
+/* ==========================================================================
+   Custom styles
+   ========================================================================== */
+h1,h2,h3,h4,h5,h6 {
+  letter-spacing: 0.05rem;
+}
+h1 {
+  color: #ffffff;
+  font-family: 'Dosis bold', sans-serif;
+  margin: 24px 0 18px 0;
+  font-size: 3em;
+}
+h3 {
+  color: #ffffff;
+  font-family: 'Dosis bold', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+}
+h4 {
+  color: #fff;
+  font-family: 'Dosis regular', sans-serif;
+  font-size: 1.2em;
+}
+h5 {
+  color: #aeaeae;
+  margin: 0 0 7px 0;
+  font-family: 'Dosis regular', sans-serif;
+  font-weight: 600;
+  font-size: 1.35em;
+}
+.row {max-width: 82% !important;}
+hr {
+  width: 48%;
+  border-color: #3e4149;
+  border-style: dot-dash;
+  border-width: 1px;
+  margin: 0 0 15px 10%;
+}
+.bold {
+  font-weight: bold;
+}
+.size-16 {
+  font-size: 16px !important;
+}
+.copyleft {
+  display:inline-block;
+  transform: rotate(180deg);
+}
+.zurb { margin: 10px 0 10px 0; opacity: 0.25; transition: 0.5s ease;}
+.zurb:hover {opacity: 0.8;}
+.copy p { text-align: right; margin: 30px 0 0 0; color: #6c737d; }
+
+.podtitulek {
+  font-size: 15px !important;
+}
+.manual p{
+  margin-bottom: 4px !important;
+}
+.odliseni-podsekce {
+  margin-left: 2.5%;
+}
+.paticka-modulu {
+  margin: 1% 0 0 3% !important
+}
+/*.footer {*/
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  /*width:100%;*/
+  /*height:auto;*/
+/*}*/
+
+/* ==========================================================================
+   Margins & Separators styles - Bootstrap
+   ========================================================================== */
+.w-25 {
+  width: 25% !important;
+}
+.w-50 {
+  width: 50% !important;
+}
+.w-75 {
+  width: 75% !important;
+}
+.w-100 {
+  width: 100% !important;
+}
+.h-25 {
+  height: 25% !important;
+}
+.h-50 {
+  height: 50% !important;
+}
+.h-75 {
+  height: 75% !important;
+}
+.h-100 {
+  height: 100% !important;
+}
+.mw-100 {
+  max-width: 100% !important;
+}
+.mh-100 {
+  max-height: 100% !important;
+}
+.m-0 {
+  margin: 0 !important;
+}
+.mt-0,
+.my-0 {
+  margin-top: 0 !important;
+}
+.mr-0,
+.mx-0 {
+  margin-right: 0 !important;
+}
+.mb-0,
+.my-0 {
+  margin-bottom: 0 !important;
+}
+.ml-0,
+.mx-0 {
+  margin-left: 0 !important;
+}
+.m-1 {
+  margin: 0.25rem !important;
+}
+.mt-1,
+.my-1 {
+  margin-top: 0.25rem !important;
+}
+.mr-1,
+.mx-1 {
+  margin-right: 0.25rem !important;
+}
+.mb-1,
+.my-1 {
+  margin-bottom: 0.25rem !important;
+}
+.ml-1,
+.mx-1 {
+  margin-left: 0.25rem !important;
+}
+.m-2 {
+  margin: 0.5rem !important;
+}
+.mt-2,
+.my-2 {
+  margin-top: 0.5rem !important;
+}
+.mr-2,
+.mx-2 {
+  margin-right: 0.5rem !important;
+}
+.mb-2,
+.my-2 {
+  margin-bottom: 0.5rem !important;
+}
+.ml-2,
+.mx-2 {
+  margin-left: 0.5rem !important;
+}
+.m-3 {
+  margin: 1rem !important;
+}
+.mt-3,
+.my-3 {
+  margin-top: 1rem !important;
+}
+.mr-3,
+.mx-3 {
+  margin-right: 1rem !important;
+}
+.mb-3,
+.my-3 {
+  margin-bottom: 1rem !important;
+}
+.ml-3,
+.mx-3 {
+  margin-left: 1rem !important;
+}
+.m-4 {
+  margin: 1.5rem !important;
+}
+.mt-4,
+.my-4 {
+  margin-top: 1.5rem !important;
+}
+.mr-4,
+.mx-4 {
+  margin-right: 1.5rem !important;
+}
+.mb-4,
+.my-4 {
+  margin-bottom: 1.5rem !important;
+}
+.ml-4,
+.mx-4 {
+  margin-left: 1.5rem !important;
+}
+.m-5 {
+  margin: 3rem !important;
+}
+.mt-5,
+.my-5 {
+  margin-top: 3rem !important;
+}
+.mr-5,
+.mx-5 {
+  margin-right: 3rem !important;
+}
+.mb-5,
+.my-5 {
+  margin-bottom: 3rem !important;
+}
+.ml-5,
+.mx-5 {
+  margin-left: 3rem !important;
+}
+.p-0 {
+  padding: 0 !important;
+}
+.pt-0,
+.py-0 {
+  padding-top: 0 !important;
+}
+.pr-0,
+.px-0 {
+  padding-right: 0 !important;
+}
+.pb-0,
+.py-0 {
+  padding-bottom: 0 !important;
+}
+.pl-0,
+.px-0 {
+  padding-left: 0 !important;
+}
+.p-1 {
+  padding: 0.25rem !important;
+}
+.pt-1,
+.py-1 {
+  padding-top: 0.25rem !important;
+}
+.pr-1,
+.px-1 {
+  padding-right: 0.25rem !important;
+}
+.pb-1,
+.py-1 {
+  padding-bottom: 0.25rem !important;
+}
+.pl-1,
+.px-1 {
+  padding-left: 0.25rem !important;
+}
+.p-2 {
+  padding: 0.5rem !important;
+}
+.pt-2,
+.py-2 {
+  padding-top: 0.5rem !important;
+}
+.pr-2,
+.px-2 {
+  padding-right: 0.5rem !important;
+}
+.pb-2,
+.py-2 {
+  padding-bottom: 0.5rem !important;
+}
+.pl-2,
+.px-2 {
+  padding-left: 0.5rem !important;
+}
+.p-3 {
+  padding: 1rem !important;
+}
+.pt-3,
+.py-3 {
+  padding-top: 1rem !important;
+}
+.pr-3,
+.px-3 {
+  padding-right: 1rem !important;
+}
+.pb-3,
+.py-3 {
+  padding-bottom: 1rem !important;
+}
+.pl-3,
+.px-3 {
+  padding-left: 1rem !important;
+}
+.p-4 {
+  padding: 1.5rem !important;
+}
+.pt-4,
+.py-4 {
+  padding-top: 1.5rem !important;
+}
+.pr-4,
+.px-4 {
+  padding-right: 1.5rem !important;
+}
+.pb-4,
+.py-4 {
+  padding-bottom: 1.5rem !important;
+}
+.pl-4,
+.px-4 {
+  padding-left: 1.5rem !important;
+}
+.p-5 {
+  padding: 3rem !important;
+}
+.pt-5,
+.py-5 {
+  padding-top: 3rem !important;
+}
+.pr-5,
+.px-5 {
+  padding-right: 3rem !important;
+}
+.pb-5,
+.py-5 {
+  padding-bottom: 3rem !important;
+}
+.pl-5,
+.px-5 {
+  padding-left: 3rem !important;
+}
+.m-auto {
+  margin: auto !important;
+}
+.mt-auto,
+.my-auto {
+  margin-top: auto !important;
+}
+.mr-auto,
+.mx-auto {
+  margin-right: auto !important;
+}
+.mb-auto,
+.my-auto {
+  margin-bottom: auto !important;
+}
+.ml-auto,
+.mx-auto {
+  margin-left: auto !important;
+}
+/* ==========================================================================
+   Offset styles - Bootstrap
+   ========================================================================== */
+.offset-1 {
+  margin-left: 8.333333%;
+}
+
+.offset-2 {
+  margin-left: 16.666667%;
+}
+
+.offset-3 {
+  margin-left: 25%;
+}
+
+.offset-4 {
+  margin-left: 33.333333%;
+}
+
+.offset-5 {
+  margin-left: 41.666667%;
+}
+
+.offset-6 {
+  margin-left: 50%;
+}
+
+.offset-7 {
+  margin-left: 58.333333%;
+}
+
+.offset-8 {
+  margin-left: 66.666667%;
+}
+
+.offset-9 {
+  margin-left: 75%;
+}
+
+.offset-10 {
+  margin-left: 83.333333%;
+}
+
+.offset-11 {
+  margin-left: 91.666667%;
+}
+/* ==========================================================================
+   Layout styles
+   ========================================================================== */
+  body, html {
+    background-color: #2B2E36;
+  }
+
+  #html5-logo {
+    width: 128px;
+    height: 128px;
+    background: url(faviconX.f6746963.png) no-repeat 0 0;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+
+  .info-box {
+    height: 180px;
+    background-color: #a1492d;
+    margin-bottom: 15px;
+  }
+
+  .dark-stripe {
+    background-color: #21242c;
+    min-width: 100%;
+    width: 100%;
+    padding: 9px 0 8px 0;
+  }
+
+  .stripe {
+    background-color: #C45A3B;
+    min-width: 100%;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    padding: 25px 0;
+  }
+  .a-light:link,
+  .a-light:visited {
+    color: #fef6ff;
+    text-decoration: none;
+  }
+  .a-light:hover {
+    font-weight: bold;
+  }
+
+  .a-dark,
+  .a-dark:visited {
+    color: #5e656f !important;
+    text-decoration: none;
+    transition: all 0.5s ease;
+  }
+  .a-dark:hover {
+    color: #13A7C7;
+  }
+
+  .a-blue:link,
+  .a-blue:visited {
+    text-decoration: none !important;;
+  }
+  .a-blue:hover {
+    font-weight: bold;
+  }
+  a { text-decoration: underline; }
+  a:hover { text-decoration: none !important;; }
+  a:hover span.number { color: #9E373E; }
+
+  .button { margin: 0 0 5px 0; font-family: 'Open Sans bold', sans-serif;  }
+  .button.last { margin-bottom: 30px;}
+  .button.last-all { margin-bottom: 60px;}
+
+  a.button.dwn { background-color: #13A7C7; overflow: hidden; }
+  a.button.dwn:hover {
+    background-color: #047f9a;
+    webkit-transition: background-color 300ms ease-out;  /* Saf3.2+, Chrome */
+    -moz-transition: background-color 300ms ease-out;  /* FF4+ */
+    -ms-transition: background-color 300ms ease-out;  /* IE10 */
+    -o-transition: background-color 300ms ease-out;  /* Opera 10.5+ */
+    transition: background-color 300ms ease-out;
+}
+
+  .download { text-align: center; margin: 0 auto; margin-bottom: 30px; }
+  .download a img {
+    width: 28px;
+    height: 28px;
+    margin: -3px 10px 0 0;
+    line-height: 1.5em;
+    vertical-align: middle;
+  }
+
+/* ==========================================================================
+   Page styles
+   ========================================================================== */
+  .info-box hr {
+    width: 97%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    margin-top: 5px;
+    border: 1px solid #934227;
+  }
+
+  .info-box h3 {
+    margin: 5px 0 0 10px;
+    font-family: 'Dosis book', sans-serif;
+    font-weight: 300;
+  }
+
+  .info-box p {
+    color: #ffffff;
+    font-size: 22px;
+    font-family: 'Open Sans bold', sans-serif;
+    line-height: 26px;
+    text-align: center;
+  }
+
+  p.centered {
+    margin-top: 50px;
+  }
+
+  p {
+    color: #ffffff;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+    line-height: 22px;
+    letter-spacing: 0.04rem;
+  }
+  span.number { left:10px; top: 10px; display: block; position: absolute; font-size: 40px; color: #852c33; }
+
+  .mark { margin: 0 auto; margin-top: 40px; }
+
+/* ==========================================================================
+   misc
+   ========================================================================== */
+   .highlight { background-color: red; }
+
+/* ==========================================================================
+   fonts
+   ========================================================================== */
+@font-face {
+  font-family: 'Open Sans book';
+  font-style: normal;
+  font-weight: 300;
+  src: url(http://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTXZ2MAKAc2x4R1uOSeegc5U.eot);
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTXZ2MAKAc2x4R1uOSeegc5U.eot) format('embedded-opentype'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url(http://themes.googleusercontent.com/static/fonts/opensans/v6/u-WUoqrET9fUeobQW7jkRfY6323mHUZFJMgTvxaG2iE.eot);
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/u-WUoqrET9fUeobQW7jkRfY6323mHUZFJMgTvxaG2iE.eot) format('embedded-opentype'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/u-WUoqrET9fUeobQW7jkRT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url(http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzKlSqKUsDpiXlwfj-ZM2w_A.eot);
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzKlSqKUsDpiXlwfj-ZM2w_A.eot) format('embedded-opentype'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzBa1RVmPjeKy21_GQJaLlJI.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Dosis light';
+  font-style: normal;
+  font-weight: 200;
+  src: url(http://themes.googleusercontent.com/static/fonts/dosis/v1/MOWctqiaarQU5lytv6pql_esZW2xOQ-xsNqO47m55DA.eot);
+  src: local('Dosis ExtraLight'), local('Dosis-ExtraLight'), url(http://themes.googleusercontent.com/static/fonts/dosis/v1/MOWctqiaarQU5lytv6pql_esZW2xOQ-xsNqO47m55DA.eot) format('embedded-opentype'), url(http://themes.googleusercontent.com/static/fonts/dosis/v1/W6aLiTthA4f3EVhqR-mpuPesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+
+
+@font-face {
+  font-family: 'Dosis regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url(http://themes.googleusercontent.com/static/fonts/dosis/v1/7L_OZcAjv1wywexo74IPig.eot);
+  src: local('Dosis Regular'), local('Dosis-Regular'), url(http://themes.googleusercontent.com/static/fonts/dosis/v1/7L_OZcAjv1wywexo74IPig.eot) format('embedded-opentype'), url(http://themes.googleusercontent.com/static/fonts/dosis/v1/tYjwoPxcNbCapURVAi2M5g.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Dosis book';
+  font-style: normal;
+  font-weight: 300;
+  src: url(http://themes.googleusercontent.com/static/fonts/dosis/v1/ndPw8G6t9v5BJpJ6mz0bKPesZW2xOQ-xsNqO47m55DA.eot);
+  src: local('Dosis Light'), local('Dosis-Light'), url(http://themes.googleusercontent.com/static/fonts/dosis/v1/ndPw8G6t9v5BJpJ6mz0bKPesZW2xOQ-xsNqO47m55DA.eot) format('embedded-opentype'), url(http://themes.googleusercontent.com/static/fonts/dosis/v1/-agn7DEysY24H6o49RsJa_esZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Dosis bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url(http://themes.googleusercontent.com/static/fonts/dosis/v1/aZKKvLnjhKKSONjRFzhYyPesZW2xOQ-xsNqO47m55DA.eot);
+  src: local('Dosis Bold'), local('Dosis-Bold'), url(http://themes.googleusercontent.com/static/fonts/dosis/v1/aZKKvLnjhKKSONjRFzhYyPesZW2xOQ-xsNqO47m55DA.eot) format('embedded-opentype'), url(http://themes.googleusercontent.com/static/fonts/dosis/v1/SD_sh9aV9vitKsBsjDXok_esZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
