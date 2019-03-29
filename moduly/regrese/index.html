@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Diplomová práce Neuronové sítě// praktická část" />
+    <meta name="keywords" content="neural networks, deep learning, web, design" />
+    <meta name="author" content="all:Dan Šilhavý;" />
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <link href="../../img/faviconBW.png" rel="icon" />
+    <link rel="author" href="../../humans.txt" />
+
+    <title>Modul 4 / Lineární regrese</title>
+
+    <!-- Styles
+    ================================================== -->
+    <link rel="stylesheet" href="../../css/normalize.css" />
+    <link rel="stylesheet" href="../../css/foundation.css" />
+    <link rel="stylesheet" href="../../css/vlastni.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Head - scripts
+    ================================================== -->
+    <script src="../../js/vendor/modernizr.js"></script>
+    <script src="../../js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <script type="text/javascript" src="../../js/graphs/plotlyjs-bundle.js"></script>
+    <script type="text/javascript" src="../../js/graphs/figure.js"></script>
+</head>
+<body>
+<!--region deskripce-->
+<section class='ml-4 mt-4'>
+    <div class="col-md-12">
+        <h2 class="mb-0"> Lineární regrese</h2> <br>
+        <p class="size-16">Tento modul odhaduje neznámé parametry vysvětlované proměnné X z lineárního modelu za pomoci sekvenční neuronové sítě.
+        </p>
+    </div>
+    <!--<p class='section-head'>Manuál</p>-->
+    <!--<ul class="manual" style="list-style-type: circle; list-style-position: inside;">-->
+        <!--<li>Vstupní data jsou již zadaná.</li>-->
+        <!--<li>Pokud trénujete model od nuly, můžete jej také uložit do lokálního úložiště prohlížeče.</li>-->
+        <!--<li>Pokud nahrajete již trénovaný model, můžete upravit jeho vlastnosti v prvním řádku <u>Testových příkladů</u>.</li>-->
+    <!--</ul>-->
+    <p class="mb-2 size-16">Vstupní hodnoty mají následující tvar:</p>
+    <p class="ml-5 size-16">
+        Y: [ 0,  1, 2, 3, 4, 5]<br>
+        X: [-4, -2, 0, 2, 4, 6]
+    </p>
+</section>
+<!--endregion-->
+
+<!--region GRAF-->
+    <div id="ff48df4c-5a6c-4e80-8221-260acc37ed6c" style="width: 100%; height: 100%;" class="plotly-graph-div"></div>
+    <script type="text/javascript">
+        (function(){
+            window.PLOTLYENV={'BASE_URL': 'https://plot.ly'};
+            var gd = document.getElementById('ff48df4c-5a6c-4e80-8221-260acc37ed6c');
+            var resizeDebounce = null;
+            function resizePlot() {
+                var bb = gd.getBoundingClientRect();
+                Plotly.relayout(gd, {
+                    width: bb.width,
+                    height: bb.height
+                });
+            }
+            window.addEventListener('resize', function() {
+                if (resizeDebounce) {
+                    window.clearTimeout(resizeDebounce);
+                }
+                resizeDebounce = window.setTimeout(resizePlot, 100);
+            });
+            Plotly.plot(gd,  {
+                data: figure.data,
+                layout: figure.layout,
+                frames: figure.frames,
+                config: {"showLink": true, "linkText": "", "mapboxAccessToken": "pk.eyJ1IjoiY2hyaWRkeXAiLCJhIjoiY2lxMnVvdm5iMDA4dnhsbTQ5aHJzcGs0MyJ9.X9o_rzNLNesDxdra4neC_A"}
+            });
+        }());
+    </script>
+<!--endregion-->
+
+<section class="ml-4 col-12">
+    <p class="ml-2 mt-4 size-16">Odhad hodnoty X pro Y=17  je:</p>
+    <p id="output" class="ml-5 size-16 bold">Trénuji a vypočítávám.</p>
+    <p class="ml-5 mb-4 size-16">Správný odhad je: 30.</p>
+
+    <p class="ml-2 mb-1 size-16 bold">Architektura neuronové sítě:</p>
+    <p class="ml-2 mb-5 size-16">Sekvenční model s 1 hustou (dense) vrstvou. Loss funkcí je střední kvadratická chyba (MSE) a optimizací je Gradient Descent resp. Stochastic GD.<br>
+    Počet epoch sítě je: 250.</p>
+</section>
+<!--region Aplikace-->
+<script>
+    async function learnLinear() {
+        const model = tf.sequential();   //sekvenční: bez branchů/větví. výstupy do vstupů
+        model.add(tf.layers.dense({units:1, inputShape: [1]}));      //dense-husté. všechny vstupy a výstupy propojeny s neurovem
+
+        model.compile({
+            loss: `meanSquaredError`,    //definice LOSS Funkce
+            optimizer: `sgd`            //definice optimizační FUNKCE
+        });
+
+        const xs = tf.tensor2d([-4, -2, 0, 2, 4, 6], [6, 1]);
+        const ys = tf.tensor2d([0, 1, 2, 3, 4, 5], [6, 1]);
+
+        await model.fit(ys, xs, {epochs: 650});
+
+        document.getElementById("output").innerText =
+            model.predict(tf.tensor2d([17], [1,1]));
+    }
+    learnLinear();
+</script>
+<!--endregion-->
+
+<!--region footer-->
+<div class="dark-stripe footer">
+    <div class="paticka-modulu row">
+        <div class="small-2 large-1 columns zurb">
+            <a href="http://foundation.zurb.com/"><img src="../../img/yeti.png" alt="Powered by Foundation"></a>
+        </div>
+        <div class="small-4 large-2 columns mt-3">
+            <p><a href="../../prohlaseni.html" class="a-dark">Prohlášení o přístupnosti webu</a></p>
+        </div>
+        <div class="small-3 large-6 columns text-center mt-4">
+            <p class=""><a href="../../index.html" class="a-blue">Zpátky na úvod</a></p>
+        </div>
+        <div class="small-3 large-3 columns copy">
+            <p class="a-dark">Dan Šilhavý <span class="copyleft">&copy;</span> 2019</p>
+        </div>
+    </div>
+</div>
+<!--endregion-->
+
+<!-- Body - scripts
+  ================================================== -->
+<script src="../../js/foundation.min.js"></script>
+</body>
+</html>
